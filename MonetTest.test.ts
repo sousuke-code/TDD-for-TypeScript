@@ -1,4 +1,5 @@
 import { Dollar } from "./Dollar";
+import { Franc } from "./Franc";
 
 describe("Dollar", () => {
     it("should multiply correctly", () => {
@@ -12,5 +13,14 @@ describe("Dollar", () => {
     it("test equality", () => {
         expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
         expect(new Dollar(5).equals(new Dollar(6))).toBe(false);
+    })
+})
+
+
+describe("Franc", () => {
+    it("test equaliyt", () => {
+        const five = new Franc(5);
+        expect(new Franc(10)).toEqual(five.times(2));
+        expect(new Franc(15)).toEqual(five.times(3));
     })
 })
