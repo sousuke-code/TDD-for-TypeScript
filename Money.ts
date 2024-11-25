@@ -1,10 +1,13 @@
 export  abstract class Money {
-    amount : number;
+    protected amount : number;
+    currency : string;
    
-    constructor(amount : number) {
+    constructor(amount : number, currency : string) {
         this.amount = amount;
+        this.currency = currency;
     }
 
+    
     abstract times(multiplier : number) : Money ;
     equals(object: object) : boolean {
         if (!(object instanceof Money)) {
@@ -15,11 +18,11 @@ export  abstract class Money {
 
     static dollar (amount : number): Money {
       const { Dollar } = require("./Dollar");
-      return new Dollar(amount);
+      return new Dollar(amount, "USD");
     }
 
     static franc(amount : number) : Money {
         const { Franc } = require("./Franc");
-        return new Franc(amount);
+        return new Franc(amount, "CHF");
     }
 }

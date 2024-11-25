@@ -23,3 +23,10 @@ describe("Franc", () => {
         expect(Money.franc(15)).toEqual(five.times(3));
     })
 })
+
+describe("MoneyTest", () => {
+    it("test currency", () => {
+        expect(Money.dollar(1).currency).toEqual("USD");
+        expect(Money.franc(1).currency).toEqual("CHF");
+    })
+})
