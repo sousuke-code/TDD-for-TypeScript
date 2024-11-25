@@ -9,3 +9,10 @@ describe("Dollar", () => {
         expect(product.amount).toEqual(15);
     });
 });
+
+describe("Dollar", () => {
+    it("test equality", () => {
+        expect(new Dollar(5).equals(new Dollar(5))).toBe(true);
+        expect(new Dollar(5).equals(new Dollar(6))).toBe(false);
+    })
+})
