@@ -1,4 +1,5 @@
 import { Money } from "./Money";
+import { Bank } from "./Bank";
 
 describe("Dollar", () => {
     it("should multiply correctly", () => {
@@ -20,5 +21,15 @@ describe("MoneyTest", () => {
     it("test currency", () => {
         expect(Money.dollar(1).currency).toEqual("USD");
         expect(Money.franc(1).currency).toEqual("CHF");
+    })
+})
+
+describe("test simple addtion", () => {
+    it ("should equal amount", () => {
+        const five = Money.dollar(5);
+        const sum = five.plus(five)
+        const bank = new Bank();
+        const reduced = bank.reduce(sum, "USD");
+        expect(Money.dollar(10)).toEqual(reduced);
     })
 })
