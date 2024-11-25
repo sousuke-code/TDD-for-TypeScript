@@ -1,7 +1,7 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} **/
 module.exports = {
-  testEnvironment: "node",
-  transform: {
-    "^.+.tsx?$": ["ts-jest",{}],
-  },
-};
+    preset: "ts-jest",
+    testEnvironment: "node", // テストをNode.js環境で実行
+    transform: {
+      "^.+\\.tsx?$": "ts-jest", // TypeScriptファイルのトランスフォーマー
+    },
+}  
