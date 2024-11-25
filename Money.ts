@@ -1,4 +1,4 @@
-export  abstract class Money {
+export  class Money {
     protected amount : number;
     currency : string;
    
@@ -8,7 +8,9 @@ export  abstract class Money {
     }
 
     
-    abstract times(multiplier : number) : Money ;
+     times(multiplier : number)  {
+        return new Money(this.amount * multiplier, this.currency);
+     };
     equals(object: object) : boolean {
         if (!(object instanceof Money)) {
             return false;
