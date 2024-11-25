@@ -19,12 +19,10 @@ export  class Money {
     }
 
     static dollar (amount : number): Money {
-      const { Dollar } = require("./Dollar");
-      return new Dollar(amount, "USD");
+      return new Money(amount, "USD");
     }
 
     static franc(amount : number) : Money {
-        const { Franc } = require("./Franc");
-        return new Franc(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 }

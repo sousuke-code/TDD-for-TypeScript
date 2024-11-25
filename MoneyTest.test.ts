@@ -16,14 +16,6 @@ describe("Dollar", () => {
 })
 
 
-describe("Franc", () => {
-    it("test equaliyt", () => {
-        const five = Money.franc(5);
-        expect(Money.franc(10)).toEqual(five.times(2));
-        expect(Money.franc(15)).toEqual(five.times(3));
-    })
-})
-
 describe("MoneyTest", () => {
     it("test currency", () => {
         expect(Money.dollar(1).currency).toEqual("USD");
