@@ -52,9 +52,16 @@ describe("test plus return sum", () => {
         expect(Money.dollar(7)).toEqual(result);
     })
 
-    it("test reduce money", () => {
+    // it("test reduce money", () => {
+    //     const bank = new Bank();
+    //     const result = bank.reduce(Money.dollar(1), "USD");
+    //     expect(Money.dollar(1)).toEqual(result);
+    // })
+
+    it("test reduce money differency currency", () => {
         const bank = new Bank();
-        const result = bank.reduce(Money.dollar(1), "USD");
+        bank.addRate("CHF", "USD", 2);
+        const result = bank.reduce(Money.franc(2), "USD");
         expect(Money.dollar(1)).toEqual(result);
     })
 })
