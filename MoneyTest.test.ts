@@ -1,5 +1,7 @@
 import { Money } from "./Money";
 import { Bank } from "./Bank";
+import { Sum } from "./Sum";
+import { readSync } from "fs";
 
 describe("Dollar", () => {
     it("should multiply correctly", () => {
@@ -33,3 +35,27 @@ describe("test simple addtion", () => {
         expect(Money.dollar(10)).toEqual(reduced);
     })
 })
+
+describe("test plus return sum", () => {
+    it ("shoul equal amount", () => {
+        const five = Money.dollar(5);
+        const result = five.plus(five);
+        const sum   = result as Sum;
+        expect(five).toEqual(sum.augend);
+        expect(five).toEqual(sum.addend);
+    })
+
+    it("test reduce sum", () => {
+        const sum = new Sum(Money.dollar(3), Money.dollar(4));
+        const bank = new Bank;
+        const result = bank.reduce(sum, "USD");
+        expect(Money.dollar(7)).toEqual(result);
+    })
+
+    it("test reduce money", () => {
+        const bank = new Bank();
+        const result = bank.reduce(Money.dollar(1), "USD");
+        expect(Money.dollar(1)).toEqual(result);
+    })
+})
+
